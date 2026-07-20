@@ -46,7 +46,7 @@ export default function Home() {
       <header className="site-header">
         <a className="brand" href="#inicio" aria-label="Início">
           <span className="brand-mark">&gt;_</span>
-          ionan<span>.dev</span>
+          Ionan Santos
         </a>
         <nav aria-label="Navegação principal">
           <a href="#sobre">Sobre</a>
@@ -64,11 +64,9 @@ export default function Home() {
         <div className="shell hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><i /> DISPONÍVEL PARA NOVOS DESAFIOS</p>
-            <h1>
-              Construo o <em>backend</em> que faz produtos digitais acontecerem.
-            </h1>
+            <h1>Software que <em>destrava operações</em> e cria espaço para empresas crescerem.</h1>
             <p className="hero-text">
-              Sou Ionan Santos, desenvolvedor focado em APIs, integrações e sistemas escaláveis. Transformo regras complexas em software limpo, performático e pronto para crescer.
+              Eu projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
             </p>
             <p className="terminal-line"><span>~</span> Laravel · Symfony · Node.js · AWS <b>▋</b></p>
             <div className="hero-actions">
@@ -83,16 +81,20 @@ export default function Home() {
           </div>
           <div className="code-wrap" aria-label="Exemplo de código">
             <div className="code-card">
-              <div className="code-top"><span><i /><i /><i /></span><p>app/Services/IntegrationService.php</p></div>
-              <pre><code><span className="purple">final class</span> <span className="white">IntegrationService</span>
-{'{'}
-  <span className="purple">public function</span> <span className="green">sync</span>(<span className="blue">Request</span> $request): <span className="blue">Response</span>
-  {'{'}
-    $data = <span className="purple">$this</span>-&gt;validator-&gt;<span className="green">validate</span>($request);
+              <div className="code-top"><span><i /><i /><i /></span><p>app/Services/OrderService.php</p></div>
+              <pre><code><span className="purple">&lt;?php</span>
 
-    <span className="purple">return</span> <span className="purple">$this</span>-&gt;queue-&gt;<span className="green">dispatch</span>(
-      <span className="purple">new</span> <span className="white">SyncIntegration</span>($data)
-    );
+<span className="purple">namespace</span> <span className="white">App\\Services</span>;
+
+<span className="purple">final class</span> <span className="white">OrderService</span>
+{'{'}
+  <span className="purple">public function</span> <span className="green">create</span>(array $data): <span className="blue">Order</span>
+  {'{'}
+    $order = <span className="white">Order</span>::<span className="green">create</span>($data);
+
+    <span className="purple">dispatch</span>(<span className="purple">new</span> <span className="white">SendOrderCreated</span>($order));
+
+    <span className="purple">return</span> $order;
   {'}'}
 {'}'}</code></pre>
               <div className="code-tags"><span>Laravel</span><span>REST API</span><span>Queues</span><span>Docker</span></div>
