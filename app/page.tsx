@@ -86,15 +86,30 @@ export default function Home() {
 
 <span className="purple">namespace</span> <span className="white">App\\Services</span>;
 
+<span className="purple">use</span> <span className="white">App\\Events\\OrderCreated</span>;
+<span className="purple">use</span> <span className="white">App\\Models\\Order</span>;
+<span className="purple">use</span> <span className="white">Illuminate\\Support\\Facades\\DB</span>;
+
 <span className="purple">final class</span> <span className="white">OrderService</span>
 {'{'}
   <span className="purple">public function</span> <span className="green">create</span>(array $data): <span className="blue">Order</span>
   {'{'}
-    $order = <span className="white">Order</span>::<span className="green">create</span>($data);
+    <span className="purple">return</span> <span className="white">DB</span>::<span className="green">transaction</span>(<span className="purple">function</span> () <span className="purple">use</span> ($data) {'{'}
+      $order = <span className="white">Order</span>::<span className="green">create</span>([
+        <span className="green">'customer_id'</span> =&gt; $data[<span className="green">'customer_id'</span>],
+        <span className="green">'status'</span>      =&gt; <span className="green">'pending'</span>,
+        <span className="green">'total'</span>       =&gt; $data[<span className="green">'total'</span>],
+      ]);
 
-    <span className="purple">dispatch</span>(<span className="purple">new</span> <span className="white">SendOrderCreated</span>($order));
+      <span className="white">OrderCreated</span>::<span className="green">dispatch</span>($order);
 
-    <span className="purple">return</span> $order;
+      <span className="purple">return</span> $order;
+    {'}'});
+  {'}'}
+
+  <span className="purple">public function</span> <span className="green">cancel</span>(<span className="blue">Order</span> $order): <span className="purple">void</span>
+  {'{'}
+    $order-&gt;<span className="green">update</span>([<span className="green">'status'</span> =&gt; <span className="green">'cancelled'</span>]);
   {'}'}
 {'}'}</code></pre>
               <div className="code-tags"><span>Laravel</span><span>REST API</span><span>Queues</span><span>Docker</span></div>
