@@ -81,38 +81,36 @@ export default function Home() {
           </div>
           <div className="code-wrap" aria-label="Exemplo de código">
             <div className="code-card">
-              <div className="code-top"><span><i /><i /><i /></span><p>app/Services/OrderService.php</p></div>
+              <div className="code-top"><span><i /><i /><i /></span><p>app/Http/Controllers/OrderController.php</p></div>
               <pre><code><span className="purple">&lt;?php</span>
 
-<span className="purple">namespace</span> <span className="white">App\\Services</span>;
+<span className="purple">namespace</span> <span className="white">App\\Http\\Controllers</span>;
 
-<span className="purple">use</span> <span className="white">App\\Events\\OrderCreated</span>;
+<span className="purple">use</span> <span className="white">App\\Jobs\\ProcessOrder</span>;
 <span className="purple">use</span> <span className="white">App\\Models\\Order</span>;
-<span className="purple">use</span> <span className="white">Illuminate\\Support\\Facades\\DB</span>;
+<span className="purple">use</span> <span className="white">Illuminate\\Http\\Request</span>;
+<span className="purple">use</span> <span className="white">Illuminate\\Http\\JsonResponse</span>;
 
-<span className="purple">final class</span> <span className="white">OrderService</span>
+<span className="purple">final class</span> <span className="white">OrderController</span> <span className="purple">extends</span> <span className="white">Controller</span>
 {'{'}
-  <span className="purple">public function</span> <span className="green">create</span>(array $data): <span className="blue">Order</span>
+  <span className="purple">public function</span> <span className="green">store</span>(<span className="blue">Request</span> $request): <span className="blue">JsonResponse</span>
   {'{'}
-    <span className="purple">return</span> <span className="white">DB</span>::<span className="green">transaction</span>(<span className="purple">function</span> () <span className="purple">use</span> ($data) {'{'}
-      $order = <span className="white">Order</span>::<span className="green">create</span>([
-        <span className="green">'customer_id'</span> =&gt; $data[<span className="green">'customer_id'</span>],
-        <span className="green">'status'</span>      =&gt; <span className="green">'pending'</span>,
-        <span className="green">'total'</span>       =&gt; $data[<span className="green">'total'</span>],
-      ]);
+    $data = $request-&gt;<span className="green">validate</span>([
+      <span className="green">'customer_id'</span> =&gt; [<span className="green">'required'</span>, <span className="green">'exists:customers,id'</span>],
+      <span className="green">'total'</span>       =&gt; [<span className="green">'required'</span>, <span className="green">'numeric'</span>],
+    ]);
 
-      <span className="white">OrderCreated</span>::<span className="green">dispatch</span>($order);
+    $order = <span className="white">Order</span>::<span className="green">create</span>($data);
 
-      <span className="purple">return</span> $order;
-    {'}'});
-  {'}'}
+    <span className="white">ProcessOrder</span>::<span className="green">dispatch</span>($order);
 
-  <span className="purple">public function</span> <span className="green">cancel</span>(<span className="blue">Order</span> $order): <span className="purple">void</span>
-  {'{'}
-    $order-&gt;<span className="green">update</span>([<span className="green">'status'</span> =&gt; <span className="green">'cancelled'</span>]);
+    <span className="purple">return</span> <span className="green">response</span>()-&gt;<span className="green">json</span>([
+      <span className="green">'status'</span> =&gt; <span className="green">'created'</span>,
+      <span className="green">'order'</span>  =&gt; $order,
+    ], <span className="white">201</span>);
   {'}'}
 {'}'}</code></pre>
-              <div className="code-tags"><span>Laravel</span><span>REST API</span><span>Queues</span><span>Docker</span></div>
+              <div className="code-tags"><span>Laravel</span><span>REST API</span><span>Queues</span><span>PHP</span></div>
             </div>
             <span className="corner c1" /><span className="corner c2" />
           </div>
