@@ -40,6 +40,35 @@ const technologies = [
   ["Dados & qualidade", "MySQL", "PostgreSQL", "Pest", "PHPUnit", "Git"],
 ];
 
+const laravelCode = `<span class="purple">&lt;?php</span>
+
+<span class="purple">namespace</span> <span class="white">App\\Http\\Controllers</span>;
+
+<span class="purple">use</span> <span class="white">App\\Jobs\\ProcessOrder</span>;
+<span class="purple">use</span> <span class="white">App\\Models\\Order</span>;
+<span class="purple">use</span> <span class="white">Illuminate\\Http\\Request</span>;
+<span class="purple">use</span> <span class="white">Illuminate\\Http\\JsonResponse</span>;
+
+<span class="purple">final class</span> <span class="white">OrderController</span> <span class="purple">extends</span> <span class="white">Controller</span>
+{
+    <span class="purple">public function</span> <span class="green">store</span>(<span class="blue">Request</span> $request): <span class="blue">JsonResponse</span>
+    {
+        $data = $request-&gt;<span class="green">validate</span>([
+            <span class="green">'customer_id'</span> =&gt; [<span class="green">'required'</span>, <span class="green">'exists:customers,id'</span>],
+            <span class="green">'total'</span>       =&gt; [<span class="green">'required'</span>, <span class="green">'numeric'</span>],
+        ]);
+
+        $order = <span class="white">Order</span>::<span class="green">create</span>($data);
+
+        <span class="white">ProcessOrder</span>::<span class="green">dispatch</span>($order);
+
+        <span class="purple">return</span> <span class="green">response</span>()-&gt;<span class="green">json</span>([
+            <span class="green">'status'</span> =&gt; <span class="green">'created'</span>,
+            <span class="green">'order'</span>  =&gt; $order,
+        ], <span class="white">201</span>);
+    }
+}`;
+
 export default function Home() {
   return (
     <main>
@@ -73,43 +102,16 @@ export default function Home() {
               <a className="button primary" href="#contato">Entrar em contato <span>→</span></a>
               <a className="button ghost" href="#experiencia">Ver trajetória <span>↓</span></a>
             </div>
-            <div className="quick-facts">
-              <span><b>4+</b> anos criando software</span>
-              <span><b>Backend</b> & integrações</span>
-              <span><b>São Luís</b>, Maranhão</span>
+            <div className="service-list">
+              <div><i>▣</i><span>Backend: APIs,<br />integrações e automações</span></div>
+              <div><i>♙</i><span>Fullstack: sistemas web<br />sob medida</span></div>
+              <div><i>◇</i><span>DevOps: Docker, filas e<br />deploy</span></div>
             </div>
           </div>
           <div className="code-wrap" aria-label="Exemplo de código">
             <div className="code-card">
               <div className="code-top"><span><i /><i /><i /></span><p>app/Http/Controllers/OrderController.php</p></div>
-              <pre><code><span className="purple">&lt;?php</span>
-
-<span className="purple">namespace</span> <span className="white">App\\Http\\Controllers</span>;
-
-<span className="purple">use</span> <span className="white">App\\Jobs\\ProcessOrder</span>;
-<span className="purple">use</span> <span className="white">App\\Models\\Order</span>;
-<span className="purple">use</span> <span className="white">Illuminate\\Http\\Request</span>;
-<span className="purple">use</span> <span className="white">Illuminate\\Http\\JsonResponse</span>;
-
-<span className="purple">final class</span> <span className="white">OrderController</span> <span className="purple">extends</span> <span className="white">Controller</span>
-{'{'}
-  <span className="purple">public function</span> <span className="green">store</span>(<span className="blue">Request</span> $request): <span className="blue">JsonResponse</span>
-  {'{'}
-    $data = $request-&gt;<span className="green">validate</span>([
-      <span className="green">'customer_id'</span> =&gt; [<span className="green">'required'</span>, <span className="green">'exists:customers,id'</span>],
-      <span className="green">'total'</span>       =&gt; [<span className="green">'required'</span>, <span className="green">'numeric'</span>],
-    ]);
-
-    $order = <span className="white">Order</span>::<span className="green">create</span>($data);
-
-    <span className="white">ProcessOrder</span>::<span className="green">dispatch</span>($order);
-
-    <span className="purple">return</span> <span className="green">response</span>()-&gt;<span className="green">json</span>([
-      <span className="green">'status'</span> =&gt; <span className="green">'created'</span>,
-      <span className="green">'order'</span>  =&gt; $order,
-    ], <span className="white">201</span>);
-  {'}'}
-{'}'}</code></pre>
+              <pre><code dangerouslySetInnerHTML={{ __html: laravelCode }} /></pre>
               <div className="code-tags"><span>Laravel</span><span>REST API</span><span>Queues</span><span>PHP</span></div>
             </div>
             <span className="corner c1" /><span className="corner c2" />
