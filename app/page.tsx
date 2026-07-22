@@ -35,7 +35,7 @@ const experiences = [
 
 const technologies = [
   ["Backend", "PHP", "Laravel", "Symfony", "Node.js", "CakePHP"],
-  ["Arquitetura", "APIs REST", "DDD", "SOLID", "Hexagonal", "JWT"],
+  ["Arquitetura", "APIs REST", "DDD", "SOLID", "Hexagonal", "JWT", "Strategy", "Factory", "Observer"],
   ["Infraestrutura", "Docker", "AWS", "Nginx", "Apache", "CI/CD"],
   ["Dados & qualidade", "MySQL", "PostgreSQL", "Pest", "PHPUnit", "Git"],
 ];
