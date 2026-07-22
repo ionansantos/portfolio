@@ -63,6 +63,22 @@ const laravelCode = `<span class="purple">&lt;?php</span>
 }`;
 
 export default function Home() {
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLElement>(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      }),
+      { threshold: 0.16 },
+    );
+
+    elements.forEach((element) => observer.observe(element));
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main>
       <header className="site-header">
@@ -114,11 +130,11 @@ export default function Home() {
 
       <section className="section about" id="sobre">
         <div className="shell two-col">
-          <div>
+          <div className="reveal">
             <p className="eyebrow">01 / SOBRE MIM</p>
             <h2>Engenharia de software com <em>clareza</em> desde a base.</h2>
           </div>
-          <div className="about-copy">
+          <div className="about-copy reveal delay-1">
             <p>Minha jornada começou pela curiosidade de entender o que existe por trás de um sistema. Hoje, essa curiosidade virou um olhar atento para arquitetura, desempenho e produto.</p>
             <p>Embora tenha experiência full stack, atuo principalmente no backend: crio aplicações escaláveis, integrações entre sistemas e APIs que suportam operações reais.</p>
             <div className="focus-list">
@@ -132,9 +148,9 @@ export default function Home() {
 
       <section className="section experience" id="experiencia">
         <div className="shell">
-          <div className="section-head"><div><p className="eyebrow">02 / TRAJETÓRIA</p><h2>Experiência <em>profissional</em></h2></div><p>Experiência prática desenvolvendo produtos, integrações e serviços para diferentes setores.</p></div>
+          <div className="section-head reveal"><div><p className="eyebrow">02 / TRAJETÓRIA</p><h2>Experiência <em>profissional</em></h2></div><p>Experiência prática desenvolvendo produtos, integrações e serviços para diferentes setores.</p></div>
           <div className="timeline">
-            {experiences.map((item, index) => <article className="experience-item" key={item.company}>
+            {experiences.map((item, index) => <article className={`experience-item reveal delay-${index + 1}`} key={item.company}>
               <div className="time"><span>{item.period}</span><i /></div>
               <div className="experience-card">
                 <div className="card-title"><div><p>{item.company}</p><h3>{item.role}</h3></div><span>0{index + 1}</span></div>
@@ -148,9 +164,9 @@ export default function Home() {
 
       <section className="section stack" id="stack">
         <div className="shell">
-          <p className="eyebrow">03 / FERRAMENTAS</p>
-          <h2>Uma stack para entregar com <em>consistência.</em></h2>
-          <div className="stack-grid">{technologies.map(([title, ...items], index) => <article className="stack-card" key={title}>
+          <p className="eyebrow reveal">03 / FERRAMENTAS</p>
+          <h2 className="reveal delay-1">Uma stack para entregar com <em>consistência.</em></h2>
+          <div className="stack-grid">{technologies.map(([title, ...items], index) => <article className={`stack-card reveal delay-${index + 1}`} key={title}>
             <span>0{index + 1}</span><h3>{title}</h3><div>{items.map(item => <b key={item}>{item}</b>)}</div>
           </article>)}</div>
         </div>
@@ -158,7 +174,7 @@ export default function Home() {
 
       <section className="contact" id="contato">
         <div className="contact-glow" />
-        <div className="shell contact-inner">
+        <div className="shell contact-inner reveal">
           <p className="eyebrow">04 / CONTATO</p>
           <h2>Vamos construir algo <em>relevante?</em></h2>
           <p>Se você tem um desafio técnico, uma integração para resolver ou um produto para evoluir, vamos conversar.</p>
@@ -173,3 +189,6 @@ export default function Home() {
     </main>
   );
 }
+"use client";
+
+import { useEffect } from "react";
