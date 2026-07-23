@@ -9,9 +9,14 @@ test("build produces the Cloudflare Pages static entry point", async () => {
 
   assert.match(html, /<html lang="pt-BR">/i);
   assert.match(html, /<title>Ionan Santos — Backend Developer<\/title>/i);
+  assert.match(
+    html,
+    /<link rel="icon" type="image\/svg\+xml" href="\/favicon\.svg" \/>/i,
+  );
   assert.match(html, /<meta name="description"/i);
   assert.match(html, /<script[^>]+src="\/assets\/[^\"]+\.js"/i);
   await access(new URL("dist/og.png", root));
+  await access(new URL("dist/favicon.svg", root));
 });
 
 test("portfolio keeps its primary navigation and contact accessible", async () => {
