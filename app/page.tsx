@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 const experiences = [
   {
     period: "fev 2025 — atual",
@@ -189,6 +193,3 @@ export default function Home() {
     </main>
   );
 }
-"use client";
-
-import { useEffect } from "react";

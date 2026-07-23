@@ -89,8 +89,26 @@ actions tied to the current ChatGPT user. Leave public content anonymous.
 
 - `npm run dev`: start local development
 - `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
+- `npm test`: build and verify the production portfolio output
+- `npm run check`: run lint, tests, and the production build
 - `npm run db:generate`: generate Drizzle migrations after schema changes
+
+## CI/CD and Cloudflare Pages
+
+The GitHub Actions workflow in `.github/workflows/ci-cd.yml` runs lint, tests,
+and a production build for pull requests and pushes to `main`. A production
+deploy runs only after all checks pass on `main`.
+
+Configure these GitHub repository settings before the first deployment:
+
+- Secret `CLOUDFLARE_API_TOKEN`: a scoped Cloudflare API token with Pages edit
+  permission.
+- Secret `CLOUDFLARE_ACCOUNT_ID`: the Cloudflare account ID that owns the Pages
+  project.
+- Variable `CLOUDFLARE_PAGES_PROJECT`: the exact Cloudflare Pages project name.
+
+The workflow uses the GitHub `production` environment so deployment protection
+rules and required reviewers can be enabled in the repository settings.
 
 ## Learn More
 
