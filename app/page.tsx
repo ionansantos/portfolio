@@ -8,16 +8,16 @@ const experiences = [
     company: "App Facilita",
     role: "Desenvolvedor Back-End Pleno",
     description:
-      "CRM para imobiliárias com integrações críticas e foco contínuo em performance.",
-    tags: ["Laravel", "REST APIs", "Queues", "Pest"],
+      "CRM para imobiliárias com APIs e integrações críticas, usando Eloquent ORM e mensageria com filas no Amazon SQS para processamento assíncrono e alta performance.",
+    tags: ["Laravel", "Eloquent ORM", "Amazon SQS", "Pest"],
   },
   {
-    period: "jan 2023 — fev 2025",
+    period: "fev 2023 — fev 2025",
     company: "D3T Inovação Tecnológica",
     role: "Desenvolvedor Full Stack",
     description:
-      "APIs escaláveis, autenticação JWT, WebSockets, CI/CD e integrações com interfaces web e mobile.",
-    tags: ["PHP", "Docker", "Vue.js", "React Native"],
+      "APIs escaláveis com Laravel e Eloquent ORM, autenticação JWT, WebSockets e processamento assíncrono com filas e RabbitMQ, além de CI/CD e integrações web e mobile.",
+    tags: ["RabbitMQ", "Eloquent ORM", "Docker", "WebSockets"],
   },
   {
     period: "dez 2022 — dez 2023",
@@ -40,8 +40,8 @@ const experiences = [
 const technologies = [
   ["Backend", "PHP", "Laravel", "Symfony", "Node.js", "CakePHP"],
   ["Arquitetura", "APIs REST", "DDD", "SOLID", "Hexagonal", "JWT", "Strategy", "Factory", "Observer"],
-  ["Infraestrutura", "Docker", "AWS", "Nginx", "Apache", "CI/CD"],
-  ["Dados & qualidade", "MySQL", "PostgreSQL", "Pest", "PHPUnit", "Git"],
+  ["Infraestrutura", "Docker", "AWS", "Amazon SQS", "RabbitMQ", "Filas", "CI/CD"],
+  ["Dados & qualidade", "MySQL", "PostgreSQL", "Eloquent ORM", "Pest", "PHPUnit", "Git"],
 ];
 
 const laravelCode = `<span class="purple">&lt;?php</span>
@@ -108,7 +108,7 @@ export default function Home() {
             <p className="eyebrow"><i /> DISPONÍVEL PARA NOVOS DESAFIOS</p>
             <h1>Software que <em>destrava operações</em> e cria espaço para empresas crescerem.</h1>
             <p className="hero-text">
-              Eu projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
+              Há 5 anos projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
             </p>
             <p className="terminal-line"><span>~</span> Laravel · Symfony · Node.js · AWS <b>▋</b></p>
             <div className="hero-actions">
@@ -140,7 +140,7 @@ export default function Home() {
           </div>
           <div className="about-copy reveal delay-1">
             <p>Minha jornada começou pela curiosidade de entender o que existe por trás de um sistema. Hoje, essa curiosidade virou um olhar atento para arquitetura, desempenho e produto.</p>
-            <p>Embora tenha experiência full stack, atuo principalmente no backend: crio aplicações escaláveis, integrações entre sistemas e APIs que suportam operações reais.</p>
+            <p>Com 5 anos de experiência profissional em desenvolvimento, embora tenha atuação full stack, trabalho principalmente no backend: crio aplicações escaláveis, integrações entre sistemas e APIs que suportam operações reais.</p>
             <div className="focus-list">
               <span><b>01</b> APIs e integrações de negócio</span>
               <span><b>02</b> Arquitetura limpa e sustentável</span>
