@@ -186,7 +186,7 @@ export default function Home() {
             <article>
               <p className="eyebrow">FORMAÇÃO ACADÊMICA</p>
               <h3>Análise e Desenvolvimento de Sistemas</h3>
-              <span>Anhanguera Educacional · Conclusão em agosto de 2025</span>
+              <span>Anhanguera Educacional · Conclusão em janeiro de 2028</span>
             </article>
             <article>
               <p className="eyebrow">CERTIFICAÇÕES</p>
