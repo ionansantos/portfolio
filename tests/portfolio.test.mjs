@@ -27,6 +27,6 @@ test("portfolio keeps its primary navigation and contact accessible", async () =
   assert.match(page, /href="#experiencia"/);
   assert.match(page, /href="#stack"/);
   assert.match(page, /href="#contato"/);
-  assert.match(page, /href="mailto:ionan564@gmail\.com"/);
+  assert.match(page, /href="mailto:ionans564@gmail\.com"/);
   assert.match(page, /rel="noreferrer"/);
 });

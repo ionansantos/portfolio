@@ -8,21 +8,21 @@ const experiences = [
     company: "App Facilita",
     role: "Desenvolvedor Back-End Pleno",
     description:
-      "CRM para imobiliárias com APIs e integrações críticas, usando Eloquent ORM e mensageria com filas no Amazon SQS para processamento assíncrono e alta performance.",
-    tags: ["Laravel", "Eloquent ORM", "Amazon SQS", "Pest"],
+      "Desenvolvimento backend de CRM imobiliário com APIs REST, integrações com Sienge, UAU, Informakon e Mega, processamento assíncrono via Amazon SQS, observabilidade no CloudWatch e otimização de consultas SQL.",
+    tags: ["PHP", "Laravel", "Amazon SQS", "CloudWatch", "Pest"],
   },
   {
     period: "fev 2023 — fev 2025",
     company: "D3T Inovação Tecnológica",
-    role: "Desenvolvedor Full Stack",
+    role: "Desenvolvedor Full Stack | PHP/Laravel",
     description:
-      "APIs escaláveis com Laravel e Eloquent ORM, autenticação JWT, WebSockets e processamento assíncrono com filas e RabbitMQ, além de CI/CD e integrações web e mobile.",
-    tags: ["RabbitMQ", "Eloquent ORM", "Docker", "WebSockets"],
+      "Atuação full stack com foco em APIs PHP/Laravel, autenticação JWT, processamento assíncrono e WebSockets, integrando aplicações Vue.js e React Native com Docker e CI/CD.",
+    tags: ["JWT", "WebSockets", "Docker", "SonarQube", "PHPUnit"],
   },
   {
     period: "dez 2022 — dez 2023",
-    company: "INNYX Tecnologia",
-    role: "Desenvolvedor Full Stack",
+    company: "INNYX Tecnologia LTDA",
+    role: "Desenvolvedor Full Stack | PHP/Laravel",
     description:
       "Sistemas web e APIs em Laravel, com manutenção evolutiva, MySQL e boas práticas de versionamento.",
     tags: ["Laravel", "MySQL", "Git", "APIs REST"],
@@ -30,7 +30,7 @@ const experiences = [
   {
     period: "ago 2021 — ago 2022",
     company: "Clinicarx",
-    role: "Desenvolvedor Full Stack",
+    role: "Desenvolvedor Full Stack | PHP/Laravel",
     description:
       "Soluções para o setor de saúde, combinando APIs, arquitetura MVC e otimização de consultas.",
     tags: ["PHP", "Laravel", "Clean Code", "SQL"],
@@ -38,10 +38,19 @@ const experiences = [
 ];
 
 const technologies = [
-  ["Backend", "PHP", "Laravel", "Symfony", "Node.js", "CakePHP"],
-  ["Arquitetura", "APIs REST", "DDD", "SOLID", "Hexagonal", "JWT", "Strategy", "Factory", "Observer"],
-  ["Infraestrutura", "Docker", "AWS", "Amazon SQS", "RabbitMQ", "Filas", "CI/CD"],
-  ["Dados & qualidade", "MySQL", "PostgreSQL", "Eloquent ORM", "Pest", "PHPUnit", "Git"],
+  ["Backend", "PHP", "Laravel", "Symfony", "CakePHP", "APIs REST", "JWT", "Jobs/Queues"],
+  ["Arquitetura", "DDD", "SOLID", "Hexagonal", "Clean Code", "WebSockets"],
+  ["Infraestrutura", "AWS", "CloudWatch", "Amazon SQS", "Apache Kafka", "Docker", "CI/CD"],
+  ["Dados & qualidade", "MySQL", "PostgreSQL", "SQL", "Pest", "PHPUnit", "TDD", "SonarQube", "Git"],
+  ["Frontend", "JavaScript", "Vue.js", "React", "React Native"],
+];
+
+const certifications = [
+  "APIs Poderosas com Laravel",
+  "Ambiente Docker na DigitalOcean",
+  "Livewire Essencial",
+  "Docker Swarm e Kubernetes",
+  "Laravel e Vue.js",
 ];
 
 const laravelCode = `<span class="purple">&lt;?php</span>
@@ -110,7 +119,7 @@ export default function Home() {
             <p className="hero-text">
               Há 5 anos projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
             </p>
-            <p className="terminal-line"><span>~</span> Laravel · Symfony · Node.js · AWS <b>▋</b></p>
+            <p className="terminal-line"><span>~</span> PHP · Laravel · APIs REST · AWS <b>▋</b></p>
             <div className="hero-actions">
               <a className="button primary" href="#contato">Entrar em contato <span>→</span></a>
               <a className="button ghost" href="#experiencia">Ver trajetória <span>↓</span></a>
@@ -140,7 +149,7 @@ export default function Home() {
           </div>
           <div className="about-copy reveal delay-1">
             <p>Minha jornada começou pela curiosidade de entender o que existe por trás de um sistema. Hoje, essa curiosidade virou um olhar atento para arquitetura, desempenho e produto.</p>
-            <p>Com 5 anos de experiência profissional em desenvolvimento, embora tenha atuação full stack, trabalho principalmente no backend: crio aplicações escaláveis, integrações entre sistemas e APIs que suportam operações reais.</p>
+            <p>Com 5 anos de experiência profissional, atuo principalmente no backend com PHP, Laravel e APIs REST. Desenvolvo integrações entre sistemas, processamento assíncrono e soluções que sustentam operações reais.</p>
             <div className="focus-list">
               <span><b>01</b> APIs e integrações de negócio</span>
               <span><b>02</b> Arquitetura limpa e sustentável</span>
@@ -173,6 +182,17 @@ export default function Home() {
           <div className="stack-grid">{technologies.map(([title, ...items], index) => <article className={`stack-card reveal delay-${index + 1}`} key={title}>
             <span>0{index + 1}</span><h3>{title}</h3><div>{items.map(item => <b key={item}>{item}</b>)}</div>
           </article>)}</div>
+          <div className="credentials reveal">
+            <article>
+              <p className="eyebrow">FORMAÇÃO ACADÊMICA</p>
+              <h3>Análise e Desenvolvimento de Sistemas</h3>
+              <span>Anhanguera Educacional · Conclusão em agosto de 2025</span>
+            </article>
+            <article>
+              <p className="eyebrow">CERTIFICAÇÕES</p>
+              <div>{certifications.map((certification) => <span key={certification}>{certification}</span>)}</div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -183,8 +203,8 @@ export default function Home() {
           <h2>Vamos construir algo <em>relevante?</em></h2>
           <p>Se você tem um desafio técnico, uma integração para resolver ou um produto para evoluir, vamos conversar.</p>
           <div className="contact-actions">
-            <a className="button primary" href="mailto:ionan564@gmail.com">ionan564@gmail.com <span>↗</span></a>
-            <a className="text-link" href="https://www.linkedin.com/in/ionan-santos-602b5a19b" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
+            <a className="button primary" href="mailto:ionans564@gmail.com">ionans564@gmail.com <span>↗</span></a>
+            <a className="text-link" href="https://www.linkedin.com/in/ionan-santos" target="_blank" rel="noreferrer">LinkedIn <span>↗</span></a>
           </div>
         </div>
       </section>
