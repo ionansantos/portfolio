@@ -8,7 +8,7 @@ const experiences = [
     company: "App Facilita",
     role: "Desenvolvedor Back-End Pleno",
     description:
-      "Desenvolvimento backend de CRM imobiliário com APIs REST, integrações com Sienge, UAU, Informakon e Mega, processamento assíncrono via Amazon SQS, observabilidade no CloudWatch e otimização de consultas SQL.",
+      "Desenvolvimento do backend de um CRM imobiliário, com APIs REST, integrações com Sienge, UAU, Informakon e Mega, processamento assíncrono via Amazon SQS, observabilidade no CloudWatch e otimização de consultas SQL.",
     tags: ["PHP", "Laravel", "Amazon SQS", "CloudWatch", "Pest"],
   },
   {
@@ -16,7 +16,7 @@ const experiences = [
     company: "D3T Inovação Tecnológica",
     role: "Desenvolvedor Full Stack | PHP/Laravel",
     description:
-      "Atuação full stack com foco em APIs PHP/Laravel, autenticação JWT, processamento assíncrono e WebSockets, integrando aplicações Vue.js e React Native com Docker e CI/CD.",
+      "Atuação full stack com foco no backend em PHP e Laravel: APIs com autenticação JWT, processamento assíncrono, WebSockets, integração com aplicações Vue.js e React Native, Docker e pipelines de CI/CD.",
     tags: ["JWT", "WebSockets", "Docker", "SonarQube", "PHPUnit"],
   },
   {
@@ -41,7 +41,7 @@ const technologies = [
   ["Backend", "PHP", "Laravel", "Symfony", "CakePHP", "APIs REST", "JWT", "Jobs/Queues"],
   ["Arquitetura", "DDD", "SOLID", "Hexagonal", "Clean Code", "WebSockets"],
   ["Infraestrutura", "AWS", "CloudWatch", "Amazon SQS", "Apache Kafka", "Docker", "CI/CD"],
-  ["Dados & qualidade", "MySQL", "PostgreSQL", "SQL", "Pest", "PHPUnit", "TDD", "SonarQube", "Git"],
+  ["Dados e qualidade", "MySQL", "PostgreSQL", "SQL", "Pest", "PHPUnit", "TDD", "SonarQube", "Git"],
   ["Frontend", "JavaScript", "Vue.js", "React", "React Native"],
 ];
 
@@ -115,9 +115,9 @@ export default function Home() {
         <div className="shell hero-grid">
           <div className="hero-copy">
             <p className="eyebrow"><i /> DISPONÍVEL PARA NOVOS DESAFIOS</p>
-            <h1>Software que <em>destrava operações</em> e cria espaço para empresas crescerem.</h1>
+            <h1>Backend que <em>integra, escala</em> e sustenta o negócio</h1>
             <p className="hero-text">
-              Há 5 anos projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
+              Há 5 anos, projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
             </p>
             <p className="terminal-line"><span>~</span> PHP · Laravel · APIs REST · AWS <b>▋</b></p>
             <div className="hero-actions">
@@ -126,7 +126,7 @@ export default function Home() {
             </div>
             <div className="service-list">
               <div><i>▣</i><span>Backend: APIs,<br />integrações e automações</span></div>
-              <div><i>♙</i><span>Fullstack: sistemas web<br />sob medida</span></div>
+              <div><i>♙</i><span>Full stack: sistemas web<br />sob medida</span></div>
               <div><i>◇</i><span>DevOps: Docker, filas e<br />deploy</span></div>
             </div>
           </div>
@@ -145,7 +145,7 @@ export default function Home() {
         <div className="shell two-col">
           <div className="reveal">
             <p className="eyebrow">01 / SOBRE MIM</p>
-            <h2>Engenharia de software com <em>clareza</em> desde a base.</h2>
+            <h2>Engenharia de software com <em>clareza</em> desde a base</h2>
           </div>
           <div className="about-copy reveal delay-1">
             <p>Minha jornada começou pela curiosidade de entender o que existe por trás de um sistema. Hoje, essa curiosidade virou um olhar atento para arquitetura, desempenho e produto.</p>
@@ -178,7 +178,7 @@ export default function Home() {
       <section className="section stack" id="stack">
         <div className="shell">
           <p className="eyebrow reveal">03 / FERRAMENTAS</p>
-          <h2 className="reveal delay-1">Uma stack para entregar com <em>consistência.</em></h2>
+          <h2 className="reveal delay-1">Uma stack para entregar com <em>consistência</em></h2>
           <div className="stack-grid">{technologies.map(([title, ...items], index) => <article className={`stack-card reveal delay-${index + 1}`} key={title}>
             <span>0{index + 1}</span><h3>{title}</h3><div>{items.map(item => <b key={item}>{item}</b>)}</div>
           </article>)}</div>
@@ -209,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="shell"><span>© {new Date().getFullYear()} Ionan Santos</span><span>Backend developer / São Luís, MA</span></footer>
+      <footer className="shell"><span>© {new Date().getFullYear()} Ionan Santos</span><span>Desenvolvedor backend / São Luís, MA</span></footer>
     </main>
   );
 }
