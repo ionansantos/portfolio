@@ -16,8 +16,8 @@ const experiences = [
     company: "D3T Inovação Tecnológica",
     role: "Desenvolvedor Full Stack | PHP/Laravel",
     description:
-      "Atuação full stack com foco no backend em PHP e Laravel: APIs com autenticação JWT, processamento assíncrono, WebSockets, integração com aplicações Vue.js e React Native, Docker e pipelines de CI/CD.",
-    tags: ["JWT", "WebSockets", "Docker", "SonarQube", "PHPUnit"],
+      "Atuação full stack com PHP, Laravel, Symfony, Node.js, Express, NestJS e TypeScript. Desenvolvimento de APIs com JWT, mensageria com RabbitMQ e Kafka, WebSockets e integração com Vue.js, React Native e Angular. Entregas com Docker, CI/CD e deploys na AWS, além de testes automatizados e análise de qualidade.",
+    tags: ["PHP/Laravel", "Node.js", "NestJS", "TypeScript", "RabbitMQ", "Kafka", "PHPUnit", "Pest", "SonarQube"],
   },
   {
     period: "dez 2022 — dez 2023",
@@ -38,19 +38,11 @@ const experiences = [
 ];
 
 const technologies = [
-  ["Backend", "PHP", "Laravel", "Symfony", "CakePHP", "APIs REST", "JWT", "Jobs/Queues"],
+  ["Backend", "PHP", "Laravel", "Symfony", "CakePHP", "Node.js", "Express", "NestJS", "TypeScript", "APIs REST", "JWT", "Jobs/Queues"],
   ["Arquitetura", "DDD", "SOLID", "Hexagonal", "Clean Code", "WebSockets"],
-  ["Infraestrutura", "AWS", "CloudWatch", "Amazon SQS", "Apache Kafka", "Docker", "CI/CD"],
+  ["Infraestrutura", "AWS", "CloudWatch", "Amazon SQS", "RabbitMQ", "Apache Kafka", "Docker", "Apache", "Nginx", "GitLab CI/CD", "GitHub Actions", "Bitbucket"],
   ["Dados e qualidade", "MySQL", "PostgreSQL", "SQL", "Pest", "PHPUnit", "TDD", "SonarQube", "Git"],
-  ["Frontend", "JavaScript", "Vue.js", "React", "React Native"],
-];
-
-const certifications = [
-  "APIs Poderosas com Laravel",
-  "Ambiente Docker na DigitalOcean",
-  "Livewire Essencial",
-  "Docker Swarm e Kubernetes",
-  "Laravel e Vue.js",
+  ["Frontend", "JavaScript", "TypeScript", "Vue.js", "React", "React Native", "Angular"],
 ];
 
 const laravelCode = `<span class="purple">&lt;?php</span>
@@ -117,7 +109,7 @@ export default function Home() {
             <p className="eyebrow"><i /> DISPONÍVEL PARA NOVOS DESAFIOS</p>
             <h1>Backend que <em>integra, escala</em> e sustenta o negócio</h1>
             <p className="hero-text">
-              Há 5 anos, projeto sistemas, APIs e automações que conectam processos, eliminam gargalos e fazem a tecnologia trabalhar a favor do negócio.
+              Desde 2021, desenvolvo sistemas, APIs e integrações que conectam processos e sustentam operações de negócio.
             </p>
             <p className="terminal-line"><span>~</span> PHP · Laravel · APIs REST · AWS <b>▋</b></p>
             <div className="hero-actions">
@@ -149,7 +141,7 @@ export default function Home() {
           </div>
           <div className="about-copy reveal delay-1">
             <p>Minha jornada começou pela curiosidade de entender o que existe por trás de um sistema. Hoje, essa curiosidade virou um olhar atento para arquitetura, desempenho e produto.</p>
-            <p>Com 5 anos de experiência profissional, atuo principalmente no backend com PHP, Laravel e APIs REST. Desenvolvo integrações entre sistemas, processamento assíncrono e soluções que sustentam operações reais.</p>
+            <p>Sou desenvolvedor Back-End / Fullstack Pleno e atuo com desenvolvimento desde 2021, principalmente com PHP, Laravel e APIs REST. Também tenho experiência com Symfony, Node.js, Express, NestJS e TypeScript, integrações entre sistemas e processamento assíncrono.</p>
             <div className="focus-list">
               <span><b>01</b> APIs e integrações de negócio</span>
               <span><b>02</b> Arquitetura limpa e sustentável</span>
@@ -186,11 +178,16 @@ export default function Home() {
             <article>
               <p className="eyebrow">FORMAÇÃO ACADÊMICA</p>
               <h3>Análise e Desenvolvimento de Sistemas</h3>
-              <span>Anhanguera Educacional · Conclusão em janeiro de 2028</span>
+              <span>Anhanguera Educacional · Conclusão prevista para janeiro de 2028</span>
             </article>
             <article>
-              <p className="eyebrow">CERTIFICAÇÕES</p>
-              <div>{certifications.map((certification) => <span key={certification}>{certification}</span>)}</div>
+              <p className="eyebrow">CERTIFICAÇÃO EM PREPARAÇÃO</p>
+              <h3>AWS Certified Cloud Practitioner</h3>
+              <span>Em preparação</span>
+            </article>
+            <article>
+              <p className="eyebrow">IDIOMAS</p>
+              <div><span>Português · Nativo</span><span>Inglês · Básico</span></div>
             </article>
           </div>
         </div>
